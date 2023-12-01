@@ -3,13 +3,9 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  let post = "강남 우동 맛집";
-  let [logo, setLogo] = useState("ReactBlog");
-  let [title, titleChange] = useState([
-    "남자코트 추천",
-    "강남 우동 맛집",
-    "파이썬 독학",
-  ]);
+  let post = "풍푸푸풍";
+  let [logo, setLogo] = useState("theWave");
+  let [title, titleChange] = useState(["검은 풍선", "파란 풍선", "빨간 풍선"]);
   let [like, likeUp] = useState([0, 0, 0]);
 
   let [modal, setModal] = useState(false); // 변경 함수는 set으로 시작하는게 거의 정석 ?
@@ -93,7 +89,7 @@ function App() {
                 likeUp(copy);
               }}
             >
-              ㅇㅇ따봉 {like[i]}
+              따봉버튼입니다. {like[i]}
             </span>
             <p>11월 29일</p>
           </div>
@@ -121,12 +117,12 @@ function Modal(props) {
   return (
     <div className="modal">
       <h4>{props.title[0]}</h4>
-      <p>날짜</p>
+      <p>가격</p>
       <p>상세내용</p>
       <button
         onClick={() => {
           let copy = [...props.title];
-          copy[0] = "여자코트 추천";
+          copy[0] = "풍선 변경입니다";
           props.titleChange(copy);
         }}
       >
