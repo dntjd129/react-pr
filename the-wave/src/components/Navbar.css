@@ -1,0 +1,29 @@
+nav {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  border: 1px solid #bdbbbb;
+  color: black;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 3rem;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
