@@ -1,13 +1,12 @@
+import "./Carousel.css";
 function Carousel() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true, // 자동 넘김
-  };
-  return <> </>;
+  return (
+    <>
+      <div className="carouselBox">
+        <h4>캐러셀 좌르르르르륵</h4>
+      </div>
+    </>
+  );
 }
 
 export default Carousel;

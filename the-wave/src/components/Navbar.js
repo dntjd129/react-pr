@@ -1,44 +1,110 @@
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import logo from "../assets/img/theWave.png";
+import search from "../assets/img/search.png";
+import menu from "../assets/img/menu.png";
+import basket from "../assets/img/basket.png";
+import mypage from "../assets/img/mypage.png";
+import { useEffect, useState } from "react";
 import React from "react";
 import "./Navbar.css";
 
 function Navbar() {
+  const [screenSize, setScreenSize] = useState(window.innerWidth <= 582);
+  const [isMenuVisible, setMenuVisible] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth <= 582);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    setMenuVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setMenuVisible(false);
+  };
+
+  const handleMouseContainer = () => {
+    setMenuVisible(false);
+  };
+
   return (
     <>
       <header>
         {/* searchbar */}
         <div className="logoBar">
           <div>
-            <a>O</a>
+            <a>
+              {screenSize ? (
+                <img src={menu} onChange={() => {}} />
+              ) : (
+                <img src={search} onChange={() => {}} />
+              )}
+            </a>
           </div>
-          <div>TheWave</div>
           <div>
-            <a>Login</a>
-            //
-            <a>Join</a>
+            <a>
+              <img src={logo} style={{ width: "60px", height: "60px" }} />
+            </a>
+          </div>
+          <div>
+            <div onMouseLeave={handleMouseContainer}>
+              <a onMouseEnter={handleMouseEnter}>
+                <img src={mypage} />
+              </a>
+              {isMenuVisible && (
+                <div className="myPageMenu">
+                  <div>
+                    <a href="#" className="menuItem">
+                      Login
+                    </a>
+                  </div>
+                  <div>
+                    <a href="#" className="menuItem">
+                      SignUp
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div>
+              <a>
+                <img src={basket} />
+              </a>
+            </div>
           </div>
         </div>
 
         {/* navbar */}
-        <nav>
-          <ul>
-            <li>
-              <a href="#">All Products</a>
-            </li>
-            <li>
-              <a href="#">Best</a>
-            </li>
-            <li>
-              <a href="#">커스텀 풍선</a>
-            </li>
-            <li>
-              <a href="#">브라이덜 샤워</a>
-            </li>
-            <li>
-              <a href="#">생화</a>
-            </li>
-          </ul>
-        </nav>
+        {screenSize ? null : (
+          <nav>
+            <ul>
+              <li>
+                <a href="#">All Products</a>
+              </li>
+              <li>
+                <a href="#">Best</a>
+              </li>
+              <li>
+                <a href="#">커스텀 풍선</a>
+              </li>
+              <li>
+                <a href="#">브라이덜 샤워</a>
+              </li>
+              <li>
+                <a href="#">생화</a>
+              </li>
+            </ul>
+          </nav>
+        )}
       </header>
     </>
   );
