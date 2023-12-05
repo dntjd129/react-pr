@@ -1,13 +1,20 @@
-nav {
-  margin-top: 50px;
+header > * {
+  font-size: 12px;
+}
+.logoBar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
   /* align-items: center; */
-  border: 1px solid #bdbbbb;
-  color: black;
-  padding: 20px;
+  border: 1px solid #c4c0c0;
+  color: #5a5a5a;
+  padding: 10px;
   position: fixed;
-  top: 0;
   width: 100%;
   z-index: 999;
 }
@@ -20,10 +27,9 @@ ul {
 }
 
 li {
-  margin-right: 3rem;
+  margin: 0 15px 0 15px;
 }
 
 a {
-  color: #fff;
   text-decoration: none;
 }

@@ -1,9 +1,13 @@
-<<<<<<< HEAD
-
-=======
 function Carousel() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true, // 자동 넘김
+  };
   return <> </>;
 }
 
 export default Carousel;
->>>>>>> ac8daf4125d80763dc665c58e5d101b428ca8de4

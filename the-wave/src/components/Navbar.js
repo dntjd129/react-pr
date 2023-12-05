@@ -1,28 +1,21 @@
-import { NavLink } from "react-router-dom";
-import logo from "../assets/img/theWave.png";
+// import { NavLink } from "react-router-dom";
 import React from "react";
 import "./Navbar.css";
 
-function Navbar({ toggle, setToggle }) {
+function Navbar() {
   return (
     <>
       <header>
         {/* searchbar */}
-        <div>
+        <div className="logoBar">
+          <div>
+            <a>O</a>
+          </div>
+          <div>TheWave</div>
           <div>
             <a>Login</a>
+            //
             <a>Join</a>
-          </div>
-          <div>
-            <ul>
-              <li></li>
-              <li></li>
-              <li>
-                <img></img>
-                <input type="text"></input>
-              </li>
-              <li></li>
-            </ul>
           </div>
         </div>
 
