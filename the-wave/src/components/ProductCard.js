@@ -58,11 +58,13 @@ function ProductCard() {
               <div>
                 <img src={value.productImg} />
               </div>
-              <ul>
-                <li>{value.productName}</li>
-                <li>{value.productInfo}</li>
-                <li>{value.productPrice}원</li>
-              </ul>
+              <div>
+                <ul>
+                  <li>{value.productName}</li>
+                  <li>{value.productInfo}</li>
+                  <li>{value.productPrice}원</li>
+                </ul>
+              </div>
             </div>
           );
         })}
