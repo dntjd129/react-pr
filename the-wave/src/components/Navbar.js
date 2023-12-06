@@ -29,6 +29,7 @@ function Navbar() {
   };
 
   const handleMouseLeave = () => {
+    // 굳이 필요 없음
     setMenuVisible(false);
   };
 
@@ -66,7 +67,7 @@ function Navbar() {
               {isMenuVisible && (
                 <div className="myPageMenu">
                   <div>
-                    <a href="#" className="menuItem">
+                    <a className="menuItem" onClick={() => NavLink("/login")}>
                       Login
                     </a>
                   </div>
