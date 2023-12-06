@@ -14,8 +14,12 @@ function newPwPage() {
       <section>
         <div className="formBox">
           <PageName>비밀번호 찾기</PageName>
-          <PageInput></PageInput>
-          <PageInput></PageInput>
+          <PageInput type={"password"} placeholder={"비밀번호"}>
+            새로운 비밀번호 입력
+          </PageInput>
+          <PageInput type={"password"} placeholder={"비밀번호 확인"}>
+            비밀번호 확인
+          </PageInput>
           <Button>비밀번호 변경 완료</Button>
         </div>
       </section>
