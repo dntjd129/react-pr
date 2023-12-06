@@ -6,18 +6,24 @@ header > * {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px 0 30px;
+  padding: 0 15px 0 15px;
+  /* width: 100%; */
+}
+
+.logoBar a {
+  cursor: pointer;
 }
 
 .logoBar > div {
   display: flex;
   align-items: center;
-  width: 60px;
+  width: 100px;
+  /* cursor: pointer; */
 }
 
 .logoBar > div > div {
   margin: 5px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 nav {
@@ -28,14 +34,14 @@ nav {
   color: #5a5a5a;
   padding: 10px;
   /* position: fixed; */
-  width: 100%;
+  /* width: 100%; */
   z-index: 997;
 }
 
 nav a {
   position: relative;
   text-decoration: none;
-  color: #5a5a5a; /* 링크 색상 설정 */
+  color: #5a5a5a;
   padding-bottom: 5px;
 }
 
@@ -72,9 +78,11 @@ a {
 .myPageMenu {
   position: absolute;
   text-align: center;
-  right: 40px;
+  right: 65px;
   z-index: 999;
-  background-color: rgb(235, 235, 235, 0.15);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
 }
 
 .myPageMenu > div {

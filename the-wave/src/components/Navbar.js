@@ -52,12 +52,15 @@ function Navbar() {
           </div>
           <div>
             <a>
-              <img src={logo} style={{ width: "60px", height: "60px" }} />
+              <img src={logo} />
             </a>
           </div>
           <div>
             <div onMouseLeave={handleMouseContainer}>
-              <a onMouseEnter={handleMouseEnter}>
+              <a
+                onMouseEnter={handleMouseEnter}
+                style={{ marginRight: "10px" }}
+              >
                 <img src={mypage} />
               </a>
               {isMenuVisible && (
@@ -88,7 +91,9 @@ function Navbar() {
           <nav>
             <ul>
               <li>
-                <a href="#">All Products</a>
+                <a href="#" style={{ fontWeight: "bold" }}>
+                  All Products
+                </a>
               </li>
               <li>
                 <a href="#">Best</a>
