@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/img/theWave.png";
 import search from "../assets/img/search.png";
 import menu from "../assets/img/menu.png";
@@ -43,17 +43,13 @@ function Navbar() {
         {/* searchbar */}
         <div className="logoBar">
           <div>
-            <a>
-              {screenSize ? (
-                <img src={menu} onChange={() => {}} />
-              ) : (
-                <img src={search} onChange={() => {}} />
-              )}
-            </a>
+            <a>{screenSize ? <img src={menu} /> : <img src={search} />}</a>
           </div>
           <div>
             <a>
-              <img src={logo} />
+              <Link to={"/"}>
+                <img src={logo} />
+              </Link>
             </a>
           </div>
           <div>
@@ -67,13 +63,13 @@ function Navbar() {
               {isMenuVisible && (
                 <div className="myPageMenu">
                   <div>
-                    <a className="menuItem" onClick={() => NavLink("/login")}>
-                      Login
+                    <a className="menuItem">
+                      <Link to="/login">Login</Link>
                     </a>
                   </div>
                   <div>
-                    <a href="#" className="menuItem">
-                      SignUp
+                    <a className="menuItem">
+                      <Link to="/register">SignUp</Link>
                     </a>
                   </div>
                 </div>

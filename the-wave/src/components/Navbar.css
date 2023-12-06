@@ -3,6 +3,7 @@ header > * {
 }
 
 .logoBar {
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,8 +34,8 @@ nav {
   border: 1px solid #dde1e6;
   color: #5a5a5a;
   padding: 10px;
-  /* position: fixed; */
-  /* width: 100%; */
+  /* position: fixed;
+  width: 100%; */
   z-index: 997;
 }
 

@@ -12,6 +12,10 @@ code {
     monospace; */
 }
 
+* {
+  font-family: "Noto Sans CJK KR";
+}
+
 @font-face {
   font-family: "Noto Sans CJK KR";
   font-style: normal;
