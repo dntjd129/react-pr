@@ -22,6 +22,9 @@ const CsBox = styled.div`
   padding: 10px;
   box-shadow: 0px 0px 2px #444;
   border-radius: 20px;
+  h4 {
+    text-align: center;
+  }
 `;
 
 const CsTextBox = styled.div`
@@ -92,6 +95,7 @@ export default function AdminCsPage() {
     (res) => {
       // 일단 강제로 true 후에 생각
       // if (isAdmin == "y") isAdmin = true;
+      const type = res.userId === userId ? "my" : "other";
       const isAdmin = true;
       console.log("res.userID", res.userId);
       console.log("userId", userId);
@@ -133,6 +137,7 @@ export default function AdminCsPage() {
               <>
                 <CsBox>
                   <h4>상담이 시작되었습니다</h4>
+                  <br />
                   {chatList.map((chat, i) => {
                     return <Chat key={i} chat={chat} />;
                   })}
@@ -150,7 +155,6 @@ export default function AdminCsPage() {
                   <button
                     onClick={() => {
                       setisChatStart(!isChatStart);
-                      // disconnectChat();
                     }}
                   >
                     상담 종료

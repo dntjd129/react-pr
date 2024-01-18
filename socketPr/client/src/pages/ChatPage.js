@@ -1,7 +1,7 @@
 import io from "socket.io-client";
 import { useCallback, useEffect, useState, useMemo } from "react";
 import styled from "styled-components";
-import Chat from "./Chat/Chat";
+import Chat from "../components/Chat/Chat";
 
 const ChatModalBox = styled.div`
   width: 320px;
@@ -45,18 +45,15 @@ const CsTextBox = styled.div`
   h2 {
     cursor: pointer;
   }
-  button {
-    cursor: pointer;
-  }
 `;
 
 const socket = io.connect("http://localhost:8000", { autoConnect: false });
-function TheWaveChat() {
+function ChatPage() {
   const [modalChat, setModalChat] = useState(false);
   const [isChatStart, setisChatStart] = useState(false);
   const [chatList, setChatList] = useState([]);
   const [textChat, setTextChat] = useState("");
-  const userId = "qwer1234";
+  const userId = "admin";
 
   // 소켓 연결
   const initSocketConnect = () => {
@@ -82,7 +79,7 @@ function TheWaveChat() {
       console.log("userId", userId);
       // console.log("isAdmin", isAdmin);
       const content = `${res.msg}`;
-      const newChatList = [...chatList, { type: type, content: content }];
+      const newChatList = [...chatList, { type: false, content: content }];
       setChatList(newChatList);
     },
     [chatList]
@@ -102,12 +99,6 @@ function TheWaveChat() {
     // 서버에서 join에 userNumber or userId를 사용하여 방을 만들어주어야 함
   };
 
-  const onCheckEnter = (e) => {
-    if (e.key === "Enter") {
-      sendMsg();
-    }
-  };
-
   // 상담종료
   // const disconnectChat = () => {
   //   console.log("상담 종료");
@@ -116,7 +107,7 @@ function TheWaveChat() {
 
   return (
     <>
-      <h4>회원</h4>
+      <h4>상담사</h4>
       {modalChat ? (
         <div>
           <button onClick={() => setModalChat(!modalChat)}>없어져라</button>
@@ -137,7 +128,6 @@ function TheWaveChat() {
                     onChange={(e) => {
                       setTextChat(e.target.value);
                     }}
-                    onkeyPress={onCheckEnter}
                   />
                   <button onClick={sendMsg}>전송</button>
                   <br />
@@ -185,4 +175,4 @@ function TheWaveChat() {
   );
 }
 
-export default TheWaveChat;
+export default ChatPage;

@@ -1,16 +1,20 @@
 import TheWaveChat from "./components/TheWaveChat";
 import "./App.css";
-import AdminCsPage from "./pages/AdminCsPage";
+// import AdminCsPage from "./pages/AdminCsPage";
+import ChatPage from "./pages/ChatPage";
+import ConsultPage from "./pages/ConsultPage";
+import ConsultPage2 from "./pages/ConsultPage2";
 
 function App() {
   return (
     <>
       <div className="container">
         <div className="left">
-          <TheWaveChat />
+          <ConsultPage />
         </div>
         <div className="right">
-          <AdminCsPage />
+          {/* <AdminCsPage /> */}
+          <ConsultPage2 />
         </div>
       </div>
     </>

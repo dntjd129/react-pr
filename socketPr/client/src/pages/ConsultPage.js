@@ -1,18 +1,19 @@
 import io from "socket.io-client";
 import { useCallback, useEffect, useState, useMemo } from "react";
+import React from "react";
 import "../styles/chat.css";
 import Chat from "./Chat";
 import Notice from "./Notice";
 
 const socket = io.connect("http://localhost:8000", { autoConnect: false });
-export default function Chatting3() {
+export default function ConsultPage() {
   const [msgInput, setMsgInput] = useState("");
   const [chatList, setChatList] = useState([]);
   const [userIdInput, setUserIdInput] = useState("");
   const [userId, setUserId] = useState(null);
   const [userList, setUserList] = useState({});
   const [dmTo, setDmTo] = useState("");
-  const [roomIdInput, setRoomInInput] = useState("");
+  const [roomIdInput, setRoomIdInput] = useState("");
 
   const initSocketConnect = () => {
     console.log(socket.connect);
@@ -44,6 +45,17 @@ export default function Chatting3() {
     setUserId(null);
   };
 
+  const checkIsEnter = (e) => {
+    if (e.key == "Enter") {
+      entryChat();
+    }
+  };
+
+  const handleEnter = (e) => {
+    if (e.key == "Enter") {
+      sendMsg();
+    }
+  };
   const userListOptions = useMemo(() => {
     const options = [];
     for (const key in userList) {
@@ -60,9 +72,8 @@ export default function Chatting3() {
   const addChatList = useCallback(
     (res) => {
       const type = res.userId === userId ? "my" : "other";
-      const content = `${res.dm ? "(속닥속닥) " : ""} ${res.userId}: ${
-        res.msg
-      }`;
+      const content =
+        res.userId === userId ? `${res.msg}` : `${res.userId}: ${res.msg}`;
       const newChatList = [...chatList, { type: type, content: content }];
       setChatList(newChatList);
     },
@@ -108,29 +119,39 @@ export default function Chatting3() {
               if (chat.type === "notice") return <Notice key={i} chat={chat} />;
               else return <Chat key={i} chat={chat} />;
             })}
-          </div>
-          <div className="input-container">
-            <select value={dmTo} onChange={(e) => setDmTo(e.target.value)}>
-              <option value="all">전체</option>
-              {userListOptions}
-            </select>
-            <input
-              type="text"
-              value={msgInput}
-              onChange={(e) => setMsgInput(e.target.value)}
-            />
-            <button onClick={sendMsg}>전송</button>
+            <div className="input-container">
+              {/* <select value={dmTo} onChange={(e) => setDmTo(e.target.value)}>
+                <option value="all">전체</option>
+                {userListOptions}
+              </select> */}
+              <input
+                type="text"
+                value={msgInput}
+                onChange={(e) => setMsgInput(e.target.value)}
+                onKeyDown={handleEnter}
+              />
+              <button onClick={sendMsg}>전송</button>
+            </div>
           </div>
         </>
       ) : (
-        <div className="input-container">
+        <form onKeyDown={checkIsEnter}>
+          {/* <div className="input-container"> */}
+          방번호
+          <input
+            type="text"
+            value={roomIdInput}
+            onChange={(e) => setRoomIdInput(e.target.value)}
+          />
+          닉네임
           <input
             type="text"
             value={userIdInput}
             onChange={(e) => setUserIdInput(e.target.value)}
           />
           <button onClick={entryChat}>입장</button>
-        </div>
+          {/* </div> */}
+        </form>
       )}
     </>
   );
